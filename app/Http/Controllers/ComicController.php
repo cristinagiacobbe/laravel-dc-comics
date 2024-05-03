@@ -29,7 +29,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*  dd($request); */
+        $data = $request->all();
+        //*sto creando in modo automatico una nuova istanza di oggetti
+        Comic::create($data);
+
+        /* posso indirizzare alla index */
+        /* return to_route('comics.index'); */
+        /* oppure: */
+        $comic = Comic::create($data);
+        return to_route('comics.show', $comic);
     }
 
     /**

@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <h1 class="m-5">Create a new comic 🦹‍♀️</h1>
-        <form action="" method="post">
+        <form action="{{ route('comics.store') }}" method="post">
             @csrf
 
             <div class="mb-3">
