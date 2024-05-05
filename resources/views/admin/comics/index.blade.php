@@ -1,28 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <title>Comics page</title>
-</head>
+@section('content')
 
-<body>
-    <div class="container">
-        <div class="row">
-            @foreach ($comics as $comic)
-            <div class="col">
-                <p>{{$comic->title}}</p>
-                <p>{{$comic->description}}</p>
-                <p>{{$comic->price}}</p>
-                <p>{{$comic->series}}</p>
-                <a href="{{route('comics.show', $comic)}}">link to comic</a>
-            </div>
-            @endforeach
+    <body>
+        <div class="table-responsive">
+            <table class="table table-primary ">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Series</th>
+                        <th>Link to</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($comics as $comic)
+                        <tr>
+                            <td>{{ $comic->title }}</td>
+                            <td>{{ $comic->description }}</td>
+                            <td>{{ $comic->price }}</td>
+                            <td>{{ $comic->series }}</td>
+                            <td><a href="{{ route('comics.show', $comic) }}">link to comic</a></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-    </div>
-</body>
-
-</html>
+    </body>
+@endsection

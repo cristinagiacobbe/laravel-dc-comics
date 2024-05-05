@@ -13,8 +13,10 @@ class ComicController extends Controller
     public function index()
     {
         /*    dd(Comic::all()); */
+
         return view('admin.comics.index', ['comics' => Comic::all()]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +40,7 @@ class ComicController extends Controller
         /* return to_route('comics.index'); */
         /* oppure: */
         $comic = Comic::create($data);
-        return to_route('comics.show', $comic);
+        return to_route('show', $comic);
     }
 
     /**
