@@ -40,7 +40,7 @@ class ComicController extends Controller
         /* return to_route('comics.index'); */
         /* oppure: */
         $comic = Comic::create($data);
-        return to_route('show', $comic);
+        return to_route('comics.index', $comic);
     }
 
     /**

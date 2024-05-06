@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ComicController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Comic;
 
@@ -22,15 +23,11 @@ Route::get('/', function () {
 
 Route::resource('comics', ComicController::class);
 
+Route::get('/guestShow/{comic}', [GuestController::class, 'show'])->name('guestshow');
+
 Route::get('/', function () {
 
     $comics = Comic::all();
 
     return view('welcome', compact('comics'));
 })->name('home');
-
-
-Route::get('/comics/{comic}', function ($id) {
-    $comic = Comic::findOrFail($id);
-    return view('show', compact('comic'));
-})->name('show');

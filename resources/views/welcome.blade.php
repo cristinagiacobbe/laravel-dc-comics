@@ -8,7 +8,7 @@
 
             @foreach ($comics as $comic)
                 <div class="card">
-                    <a href="{{ route('show', $comic) }}">Go to single comic</a>
+                    <a href="{{ route('guestshow', $comic) }}">Go to single comic</a>
                     <img class="card-img-top" src="{{ $comic->thumb }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ $comic->title }}</h5>
