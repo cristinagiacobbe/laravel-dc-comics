@@ -28,11 +28,18 @@
                             <td>{{ $comic->description }}</td>
                             <td>{{ $comic->price }}</td>
                             <td>{{ $comic->series }}</td>
-                            <td><a href="{{ route('comics.show', $comic) }}">link to comic</a></td>
+                            <td><a href="{{ route('comics.show', $comic) }}">link to comic</a>
+                                <a href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+                            </td>
+
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+
+        {{-- serve a stilizzare l'impaginazione --}}
+        {{ $comics->links('pagination::bootstrap-5') }}
+
     </body>
 @endsection
