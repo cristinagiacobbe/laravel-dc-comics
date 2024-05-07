@@ -32,3 +32,8 @@ nav {
 
     }
 }
+
+.back {
+    text-decoration: none;
+    color: white;
+}
