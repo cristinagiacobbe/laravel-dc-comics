@@ -16,11 +16,6 @@ use App\Models\Comic;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::resource('comics', ComicController::class);
 
 Route::get('/guestShow/{comic}', [GuestController::class, 'show'])->name('guestshow');
