@@ -6,14 +6,20 @@
     <body>
         <div class="container">
             <h1 class="m-5">Create a new comic 🦹‍♀️</h1>
+
+            @include('partials.validation-errors')
+
             <form action="{{ route('comics.store') }}" method="post">
                 @csrf
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId"
-                        placeholder="Insert comic title" />
-
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                        id="title" aria-describedby="helpId" placeholder="Insert comic title"
+                        value="{{ old('title') }}" />
+                    @error('title')
+                        <div class="alert alert-danger ">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">

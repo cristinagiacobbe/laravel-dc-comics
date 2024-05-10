@@ -31,10 +31,19 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $valdata =  $request->validate([
+            'title' => 'required|min:3|'
+
+
+        ]);
+
+
+
+
         /*  dd($request); */
         $data = $request->all();
         //*sto creando in modo automatico una nuova istanza di oggetti
-        Comic::create($data);
+        Comic::create($valdata);
 
         /* posso indirizzare alla index */
         /* return to_route('comics.index'); */
