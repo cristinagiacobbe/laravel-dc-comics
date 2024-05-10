@@ -32,16 +32,14 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $valdata =  $request->validate([
-            'title' => 'required|min:3|'
-
-
+            'title' => 'required|min:3|',
+            'description' => 'max:20',
+            'price' => 'required'
         ]);
 
-
-
-
+        /*  dd($valdata); */
         /*  dd($request); */
-        $data = $request->all();
+        /* $data = $request->all(); */
         //*sto creando in modo automatico una nuova istanza di oggetti
         Comic::create($valdata);
 
@@ -74,7 +72,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $comic->update($request->all());
+        $valdata =  $request->validate([
+            'title' => 'required|min:3|',
+            'description' => 'max:20',
+            'price' => 'required'
+        ]);
+
+        /*   $comic->update($request->all()); */
+        /* diventa così dopo la validazione: */
+        $comic->update($valdata);
         return to_route('comics.index', $comic);
     }
 

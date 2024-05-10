@@ -24,14 +24,21 @@
 
                 <div class="mb-3">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
+                        rows="3">{{ old('description') }}</textarea>
+                    @error('description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" step="0.01" class="form-control" name="price" id="price"
-                        aria-describedby="helpId" placeholder="Insert comic price" />
-
+                    <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
+                        name="price" id="price" aria-describedby="helpId" placeholder="Insert comic price"
+                        value="{{ old('price') }}" />
+                    @error('price')
+                        <div class="alert alert-danger "></div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-dark ">Create</button>
             </form>
