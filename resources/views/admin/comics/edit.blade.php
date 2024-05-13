@@ -16,7 +16,7 @@
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" name="title" id="title" aria-describedby="helptitle"
-                        placeholder="Insert comic title" value="{{ old('title', $comic->title) }}" />
+                        placeholder="" value="{{ old('title') ?: $comic->title }}" />
                     @error('title')
                         <div class="alert alert-danger ">{{ $message }}</div>
                     @enderror
@@ -24,7 +24,7 @@
 
                 <div class="mb-3">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="3">{{ old('description', $comic->description) }}</textarea>
+                    <textarea class="form-control" id="description" name="description" rows="3">{{ old('description') ?: $comic->description }}</textarea>
                     @error('description')
                         <div class="text-danger ">{{ $message }}</div>
                     @enderror
@@ -34,7 +34,7 @@
                     <label for="price" class="form-label">Price</label>
                     <input type="number" step="0.01" class="form-control" name="price" id="price"
                         aria-describedby="helpPrice" placeholder="Insert comic price"
-                        value="{{ old('price', $comic->price) }}" />
+                        value="{{ old('price') ?: $comic->price }}" />
                     @error('price')
                         <div class="alert alert-danger ">{{ $message }}</div>
                     @enderror

@@ -28,11 +28,17 @@
                             <td>{{ $comic->description }}</td>
                             <td>{{ $comic->price }}</td>
                             <td>{{ $comic->series }}</td>
-                            <td><a href="{{ route('comics.show', $comic) }}">link to comic</a>
-                                <a href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+                            <td><button type="button" class="btn btn-success btn-lg">
+                                    <a class="link-light link-underline-opacity-0"
+                                        href="{{ route('comics.show', $comic) }}">link to comic</a>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-lg">
+                                    <a class="link-light link-underline-opacity-0"
+                                        href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+                                </button>
 
                                 <!-- Modal trigger button -->
-                                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
                                     data-bs-target="#modalId-{{ $comic->id }}">
                                     Delete
                                 </button>
